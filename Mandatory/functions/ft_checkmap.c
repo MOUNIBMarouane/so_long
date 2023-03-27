@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:23:53 by mamounib          #+#    #+#             */
-/*   Updated: 2023/03/27 10:25:52 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:31:33 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_checkmap(char *filename)
 {
 
-	// TODO :
 	/**
 	 * TODO	: check the mape file.
 	 * - [] check if the map is exist
@@ -26,6 +25,7 @@ int	ft_checkmap(char *filename)
 	 * - []
 	 */
 	int	fd;
+	int	len;
 
 	fd = open(filename,O_RDONLY);
 	if (fd < 0)
@@ -34,7 +34,7 @@ int	ft_checkmap(char *filename)
 	}
 	else
 	{
-		
+		len = ft_strlen(filename);
 	}
 	return 0;
 }
