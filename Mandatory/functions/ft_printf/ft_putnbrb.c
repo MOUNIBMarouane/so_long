@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbrb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 13:20:37 by mamounib          #+#    #+#             */
-/*   Updated: 2023/03/23 08:36:57 by mamounib         ###   ########.fr       */
+/*   Created: 2022/11/21 11:35:23 by mamounib          #+#    #+#             */
+/*   Updated: 2022/11/22 21:56:54 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../program/main.h"
+#include "ft_printf.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_putnbrb(unsigned int nbr, char *baze)
 {
-	size_t	i;
-	char	*p;
+	unsigned int	lenb;
+	int				i;
 
-	if (!s)
-		return (0);
-	if (start >= ft_strlen(s))
-		len = 0;
-	if (len > ft_strlen(s))
-		len = ft_strlen(s);
-	p = (char *)malloc(len + 1);
-	if (!p)
-		return (0);
-	i = 0 ;
-	while (i < len && s[start])
-	{
-		p[i] = s[start];
-		i++;
-		start++;
-	}
-	p[i] = '\0';
-	return (p);
+	i = 0;
+	lenb = 0;
+	while (baze[lenb])
+		lenb++;
+	if (nbr >= lenb)
+		i += ft_putnbrb(nbr / lenb, baze);
+	i += ft_putchr(baze[nbr % lenb]);
+	return (i);
 }
