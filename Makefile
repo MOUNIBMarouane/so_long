@@ -13,4 +13,4 @@ FUNCTION = Mandatory/program/main \
 		   Mandatory/functions/utils/ft_memcpy\
 		   Mandatory/functions/utils/ft_strjoin\
 		   Mandatory/functions/utils/ft_split\
-		   Mandatory/p
+		   Mandatory/functions/printf/
