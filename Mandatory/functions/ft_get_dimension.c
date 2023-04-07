@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_get_dimension.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 18:58:56 by mamounib          #+#    #+#             */
-/*   Updated: 2023/03/23 10:07:07 by mamounib         ###   ########.fr       */
+/*   Created: 2023/04/07 06:35:57 by mamounib          #+#    #+#             */
+/*   Updated: 2023/04/07 10:23:20 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../program/main.h"
+#include "../program/main.h"
 
-void	*ft_memcpy(void *dist, const void *src, size_t n)
+void	ft_get_dimension(int fd, t_map_entry *map)
 {
-	size_t	i;
+	char	*line;
 
-	if (dist == src)
-		return (dist);
-	i = 0;
-	while (i < n)
+	line = get_next_line(fd);
+	map->width = ft_strlen(line) - 1;
+	map->height = 0;
+	while (line)
 	{
-		((unsigned char *)dist)[i] = ((unsigned char *)src)[i];
-		i++;
+		line = get_next_line(fd);
+		map->height++;
 	}
-	return (dist);
 }

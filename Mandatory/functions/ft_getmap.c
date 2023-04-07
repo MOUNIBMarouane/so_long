@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_getmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 19:23:41 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/04 12:00:58 by mamounib         ###   ########.fr       */
+/*   Created: 2023/04/07 05:43:21 by mamounib          #+#    #+#             */
+/*   Updated: 2023/04/07 10:12:31 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../program/main.h"
+#include "../program/main.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+char	**ft_getmap(int fd, int height)
 {
-	size_t	i;
-	char	*p;
+	int	i;
+	char **map;
 
-	if (!s1 || !s2)
-		return (0);
-	i = ft_strlen(s1) + ft_strlen(s2) + 1;
-	p = (char *)malloc(i);
-	if (!p)
-		return (0);
-	ft_memcpy(p, s1, ft_strlen(s1));
-	ft_memcpy(p + (ft_strlen(s1)), s2, ft_strlen(s2));
-	p[i - 1] = '\0';
-	free ((void *)s1);
-	return (p);
+	map = (char **)malloc(sizeof(char *) * height + 1);
+	if (!map)
+		return (NULL);
+	i = 0;
+	while (i < height)
+	{
+		map[i] = get_next_line(fd);
+		i++;
+	}
+	map[i] = NULL;
+	return (map);
 }

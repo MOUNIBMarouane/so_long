@@ -1,1 +1,4 @@
 .vscode/
+a.out.dSYM/
+map/
+*.dSYM

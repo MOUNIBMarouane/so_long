@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:23:53 by mamounib          #+#    #+#             */
-/*   Updated: 2023/03/30 09:22:28 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/04 13:34:31 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  */
 
 
-void	ft_checkmap(char *filename, t_map_entry *map)
+int	ft_checkmap(char *filename, t_map_entry *map)
 {
 	map->fd = open(filename,O_RDONLY);
 	if (map->fd < 0)
@@ -31,7 +31,7 @@ void	ft_checkmap(char *filename, t_map_entry *map)
 		map->extention = ft_substr(filename, map->nlen - 4, 4);
 		if (ft_memcmp(map->extention,".ber",4) == 0)
 		{
-			if(filename[map->nlen - 5] == '.' || filename[map->nlen - 5] == '/' 
+			if (filename[map->nlen - 5] == '.' || filename[map->nlen - 5] == '/'
 				|| filename[map->nlen - 5] == ' ')
 				ft_printerror("bad file name!");
 		}
@@ -39,4 +39,5 @@ void	ft_checkmap(char *filename, t_map_entry *map)
 			ft_printerror("bad extension!");
 		free(map->extention);
 	}
+	return (map->fd);
 }
