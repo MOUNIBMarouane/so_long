@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:23:53 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/04 13:34:31 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/12 06:05:58 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_checkmap(char *filename, t_map_entry *map)
 	if (map->fd < 0)
 		ft_printerror("file not found!");
 	map->nlen = ft_strlen(filename);
-	if(map->nlen > 4)
+	if (map->nlen > 4)
 	{	
 		map->extention = ft_substr(filename, map->nlen - 4, 4);
 		if (ft_memcmp(map->extention,".ber",4) == 0)
