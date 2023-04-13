@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 14:34:33 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/13 10:38:03 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/13 11:15:07 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /**
  * TODO	: check the contents of the map file.
- * - [] check if the walls valide`
- * - [] check if have C(1.n) P(1) E(1) 0(else)
+ * - [x] check if the walls valide
+ * - [x] check if have C(1.n) P(1) E(1) 0(else)
  */
 
 void	ft_check_line(char *content, int width)

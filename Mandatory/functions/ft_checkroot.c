@@ -1,19 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printerror.c                                    :+:      :+:    :+:   */
+/*   ft_checkroot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 08:27:41 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/13 11:18:40 by mamounib         ###   ########.fr       */
+/*   Created: 2023/04/13 11:07:45 by mamounib          #+#    #+#             */
+/*   Updated: 2023/04/13 11:18:13 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../program/main.h"
-
-void	ft_printerror(char *error)
-{
-	ft_putstr(error);
-	exit(1);
-}
+// void	ft_checkroot(char **map)
+// {
+// }
