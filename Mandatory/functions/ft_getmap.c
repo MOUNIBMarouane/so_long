@@ -6,26 +6,25 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 05:43:21 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/12 05:53:21 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:24:13 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../program/main.h"
 
-char	**ft_getmap(int fd, int height)
+void	ft_getmap(t_map_entry *map)
 {
 	int	i;
-	char **map;
 
-	map = (char **)malloc(sizeof(char *) * height + 1);
+	map->fd = open(map->name,O_RDONLY);
+	map->content = (char **)malloc(sizeof(char *) * map->height + 1);
 	if (!map)
-		return (NULL);
+		ft_printerror("allocation faild!");
 	i = 0;
-	while (i < height)
+	while (i < map->height)
 	{
-		map[i] = get_next_line(fd);
+		map->content[i] = get_next_line(map->fd);
 		i++;
 	}
-	map[i] = NULL;
-	return (map);
+	map->content[i] = NULL;
 }
