@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 14:34:33 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/13 11:15:07 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/20 06:49:18 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void	ft_filter_content(t_map_entry *map)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (map->content[i])
+	i = -1;
+	while (map->content[++i])
 	{
 		ft_check_line(map->content[i], map->width);
-		j = 0;
-		while (j < map->width)
+		j = -1;
+		while (++j < map->width)
 		{
 			if (ft_memchr("10ECP", map->content[i][j], 5))
 			{
@@ -52,13 +52,15 @@ void	ft_filter_content(t_map_entry *map)
 				if (map->content[i][j] == 'E')
 					map->n_e++;
 				if (map->content[i][j] == 'P')
+				{
 					map->n_p++;
-				j++;
+					map->p_pos.x = j;
+					map->p_pos.y = i;
+				}
 			}
 			else
 				ft_printerror("content map invalide !");
 		}
-		i++;
 	}
 }
 

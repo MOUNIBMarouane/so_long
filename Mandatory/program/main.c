@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 08:04:59 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/13 11:18:55 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/20 07:55:37 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,20 @@ void	ft_chekervalues(t_map_entry *map)
 
 int	main(int argc, char **argv)
 {
-	t_map_entry	map;
+	t_env		env;
 
 	if (argc == 2)
 	{
-		map.name = argv[1];
-		ft_default_stract(&map);
-		ft_checkmap(&map);
-		ft_get_dimension(&map);
-		ft_getmap(&map);
-		ft_chekervalues(&map);
-		ft_cheker(&map);
+		env.map.name = argv[1];
+		ft_default_stract(&env.map);
+		ft_checkmap(&env.map);
+		ft_get_dimension(&env.map);
+		ft_getmap(&env.map);
+		ft_cheker(&env.map);
+		ft_chekervalues(&env.map);
+		ft_draw(&env.m, env.map.content, env.map.width, env.map.height);
+		mlx_hook(env.m.mlx_win, 2, 0L, ft_event, &env);
+		mlx_loop(env.m.mlx);
 	}
 	else
 		ft_printerror("you should enter just 2 args!");
