@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 14:34:33 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/29 08:06:08 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:15:45 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	ft_check_line(char *content, int width)
 		ft_printerror("map invalide !2 ");
 }
 
-void	ft_set_player(t_position *pos, int *nbr, int x, int y)
+void	ft_set_player(t_map_entry *map, int x, int y)
 {
-	pos->x = x;
-	pos->y = y;
-	nbr++;
+	map->p_pos.x = x;
+	map->p_pos.y = y;
+	map->n_p++;
 }
 
 void	ft_filter_content(t_map_entry *map)
@@ -59,7 +59,7 @@ void	ft_filter_content(t_map_entry *map)
 				if (map->content[i][j] == 'E')
 					map->n_e++;
 				if (map->content[i][j] == 'P')
-					ft_set_player(&map->p_pos, &map->n_p, j, i);
+					ft_set_player(map, j, i);
 			}
 			else
 				ft_printerror("content map invalide !");
@@ -73,12 +73,12 @@ void	ft_check_walls(char **map, int height, int width)
 	int	j;
 
 	i = 0;
-	while (map[i])
+	while (i < height)
 	{
 		j = 0;
 		while (j < width)
 		{
-			if (map[i][0] != '1' && map[i][width - 1] != '1')
+			if (map[i][0] != '1' || map[i][width - 1] != '1')
 				ft_printerror("content map invalide !");
 			if ((i == 0 || i == height - 1) && map[i][j] != '1')
 				ft_printerror("content map invalide !");
