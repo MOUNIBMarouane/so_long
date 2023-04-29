@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 01:08:54 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/28 08:38:11 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/29 09:14:07 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,13 @@ void	ft_moveup(t_env *env)
 		if (p_to == 'C')
 			ft_coin_handel(env);
 		if (p_to == 'E' && env->map.n_c == 0)
-			ft_endgame();
+			ft_endgame(env);
 		if (p_to == 'E' && env->map.n_c != 0)
 			return ;
 		env->map.content[p.y + 1][p.x] = '0';
 		env->map.content[p.y][p.x] = 'P';
-		env->map.p_pos.y = p.y;	
+		env->map.p_pos.y = p.y;
 		mlx_clear_window(env->m.mlx, env->m.mlx_win);
 		ft_draw(&env->m, env->map.content, env->map.dem.w, env->map.dem.h);
-		ft_chekervalues(&env->map);
 	}
 }

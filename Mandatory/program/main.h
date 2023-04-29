@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 14:26:39 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/29 08:00:51 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/29 12:51:05 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_map_entry {
 	int			n_c;
 	int			n_p;
 	int			n_e;
+	int			p_move;
 	char		*name;
 	char		*extention;
 	char		**content;
@@ -91,4 +92,9 @@ void	ft_inti_wind(t_mlx *m, int width, int height);
 void	ft_chekervalues(t_map_entry *map);
 void	ft_coin_handel(t_env *env);
 void	ft_check_path(t_map_entry map);
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
+char	*ft_strdup(char *s1);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
 #endif

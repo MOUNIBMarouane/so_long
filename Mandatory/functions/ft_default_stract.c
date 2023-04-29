@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 06:57:19 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/27 10:41:13 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/29 12:45:09 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	ft_default_map(t_map_entry *map)
 	map->n_c = 0;
 	map->n_p = 0;
 	map->n_e = 0;
+	map->p_move = 0;
 }
