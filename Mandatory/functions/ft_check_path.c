@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 06:19:40 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/29 07:59:57 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/29 11:37:57 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**dupmap(char **map, int height)
 	i = 0;
 	while (i < height)
 	{
-		map2[i] = map[i];
+		map2[i] = ft_strdup(map[i]);
 		i++;
 	}
 	map2[i] = NULL;
@@ -30,14 +30,14 @@ char	**dupmap(char **map, int height)
 
 void	ft_flood_fill(t_map_entry *map, int x, int y)
 {
-	if (map->content[y][x] == 'E'
-		|| map->content[y][x] == '1'
-		|| map->content[y][x] == 'F')
-		return ;
 	if (map->content[y][x] == 'C')
 		map->n_c++;
 	if (map->content[y][x] == 'E')
 		map->n_e++;
+	if (map->content[y][x] == 'E'
+		|| map->content[y][x] == '1'
+		|| map->content[y][x] == 'F')
+		return ;
 	map->content[y][x] = 'F';
 	ft_flood_fill(map, x + 1, y);
 	ft_flood_fill(map, x - 1, y);
@@ -51,12 +51,9 @@ void	ft_check_path(t_map_entry map)
 
 	ft_default_map(&map2);
 	map2.content = dupmap(map.content, map.dem.h);
-	map2.dem.h = map.dem.h;
-	map2.dem.w = map.dem.w;
-	ft_chekervalues(&map2);
-	printf("in player %d %d \n", map.p_pos.x, map.p_pos.y);
+	map2.dem = map.dem;
 	ft_flood_fill(&map2, map.p_pos.x, map.p_pos.y);
-	ft_chekervalues(&map2);
+	free(map2.content);
 	if (map.n_c != map2.n_c || map.n_e != map2.n_e)
 		ft_printerror("PLAYER CANT WIN !");
 }
