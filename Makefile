@@ -16,6 +16,7 @@ FUNCTIONS = Mandatory/program/main\
 		   Mandatory/functions/ft_draw\
 		   Mandatory/functions/ft_putimg\
 		   Mandatory/functions/ft_event\
+		   Mandatory/functions/ft_inti_win\
 		   Mandatory/functions/utils/ft_memcmp\
 		   Mandatory/functions/utils/ft_memchr\
 		   Mandatory/functions/utils/ft_putchr\
@@ -34,11 +35,19 @@ debug:
 	Mandatory/functions/ft_getmap.c \
 	Mandatory/functions/ft_get_dimension.c \
 	Mandatory/functions/ft_cheker.c \
+	Mandatory/functions/ft_check_path.c \
 	Mandatory/functions/ft_default_stract.c \
 	Mandatory/functions/ft_printerror.c \
 	Mandatory/functions/ft_draw.c \
 	Mandatory/functions/ft_putimg.c \
 	Mandatory/functions/ft_event.c \
+	Mandatory/functions/ft_inti_win.c \
+	Mandatory/functions/events/ft_endgame.c \
+	Mandatory/functions/events/ft_moveup.c \
+	Mandatory/functions/events/ft_movedown.c \
+	Mandatory/functions/events/ft_moveleft.c \
+	Mandatory/functions/events/ft_moveright.c \
+	Mandatory/functions/events/ft_coin_handel.c \
 	Mandatory/functions/utils/ft_memcmp.c \
 	Mandatory/functions/utils/ft_memchr.c \
 	Mandatory/functions/utils/ft_putchr.c \
@@ -52,7 +61,7 @@ $(NAME) : $(OBJECT)
 	$(CC) $(CFLAGS) $(OBJECT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $@ 
 
 %.o : %.c program/main.h
-	$(CC) $(CFLAGS) -c -Imlx -o $@  $<
+	$(CC) $(CFLAGS) -c -Imlx -o $@  $< 
 	
 clean :
 	$(RM) $(OBJECT)
