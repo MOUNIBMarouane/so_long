@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:58:06 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/29 12:53:42 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:53:09 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ int	ft_event(int keycode, t_env *env)
 	if (keycode == 53)
 		ft_endgame(env);
 	env->map.p_move++;
-	ft_putnbr_fd(env->map.p_move, 1);
-	ft_putchar_fd('\n',1);
+	if (env->map.p_move != 0)
+	{
+		ft_putnbr_fd(env->map.p_move, 1);
+		ft_putchar_fd('\n',1);
+	}
 	return (1);
 }

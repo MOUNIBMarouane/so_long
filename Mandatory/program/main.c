@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 08:04:59 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/29 16:50:54 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/30 13:15:12 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ int	main(int argc, char **argv)
 		ft_getmap(&env.map);
 		ft_cheker(&env.map);
 		ft_check_path(env.map);
-		ft_default_mlx(&env.m);
 		ft_inti_wind(&env.m, env.map.dem.w, env.map.dem.h);
+		ft_default_mlx(&env.m);
 		ft_draw(&env.m, env.map.content, env.map.dem.w, env.map.dem.h);
 		mlx_key_hook(env.m.mlx_win, ft_event, &env);
+		mlx_hook(env.m.mlx_win, 17, 0, ft_endgame, &env);
 		mlx_loop(env.m.mlx);
 	}
 	else

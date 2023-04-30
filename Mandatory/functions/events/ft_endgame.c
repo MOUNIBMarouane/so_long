@@ -6,15 +6,15 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 08:08:27 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/29 16:57:23 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:37:36 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../program/main.h"
 
-void	ft_endgame(t_env *env)
+int	ft_endgame(t_env *env)
 {
-	free(env->map.content);
+	ft_freem(env->map.content, env->map.dem.h);
 	ft_putstr("END GAME!");
-	exit(1);
+	exit(0);
 }

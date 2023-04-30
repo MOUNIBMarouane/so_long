@@ -6,7 +6,7 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 14:26:39 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/29 12:51:05 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:37:10 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	ft_moveup(t_env *env);
 void	ft_movedown(t_env *env);
 void	ft_moveleft(t_env *env);
 void	ft_moveright(t_env *env);
-void	ft_endgame(t_env *env);
+int		ft_endgame(t_env *env);
 void	ft_init_value(int *var1, int *var2, int value);
 void	ft_inti_wind(t_mlx *m, int width, int height);
 void	ft_chekervalues(t_map_entry *map);
@@ -97,4 +97,5 @@ char	*ft_strdup(char *s1);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+void	ft_freem(char **map, int len);
 #endif

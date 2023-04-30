@@ -6,22 +6,30 @@
 /*   By: mamounib <mamounib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 06:57:19 by mamounib          #+#    #+#             */
-/*   Updated: 2023/04/29 12:45:09 by mamounib         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:53:30 by mamounib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../program/main.h"
 
-void	ft_default_mlx(t_mlx *mlx)
+void	ft_default_mlx(t_mlx *mlxi)
 {
-	t_dimension dem;
+	t_dimension	dem;
 
 	dem.w = 60;
 	dem.h = 60;
-	mlx->img_w = mlx_xpm_file_to_image(mlx->mlx, IMGW, &dem.w, &dem.h);
-	mlx->img_g = mlx_xpm_file_to_image(mlx->mlx, IMGG, &dem.w, &dem.h);
-	mlx->img_d = mlx_xpm_file_to_image(mlx->mlx, IMGDC, &dem.w, &dem.h);
-	mlx->img_p = mlx_xpm_file_to_image(mlx->mlx, IMGPL, &dem.w, &dem.h);
+	mlxi->img_w = mlx_xpm_file_to_image(mlxi->mlx, IMGW , &dem.w, &dem.h);
+	if (!mlxi->img_w)
+		ft_printerror("invalid picture");
+	mlxi->img_g = mlx_xpm_file_to_image(mlxi->mlx, IMGG, &dem.w, &dem.h);
+	if (!mlxi->img_g)
+		ft_printerror("invalid picture");
+	mlxi->img_d = mlx_xpm_file_to_image(mlxi->mlx, IMGDC, &dem.w, &dem.h);
+	if (!mlxi->img_d)
+		ft_printerror("invalid picture");
+	mlxi->img_p = mlx_xpm_file_to_image(mlxi->mlx, IMGPL, &dem.w, &dem.h);
+	if (!mlxi->img_p)
+		ft_printerror("invalid picture");
 }
 
 void	ft_default_map(t_map_entry *map)
